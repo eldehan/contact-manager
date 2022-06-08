@@ -47,6 +47,13 @@ class View {
     editTagsBtn.classList.toggle('hidden');
   }
 
+  displayTagsRemovable() {
+    let tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+      tag.classList.add('tag-removable');
+    });
+  }
+
   toggleAddTagsInput() {
     let editTagBtn = document.querySelector('.add-tag-btn');
 

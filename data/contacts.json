@@ -14,17 +14,10 @@
     "id": 3
   },
   {
-    "full_name": "Hans Elde",
-    "phone_number": "4253619889",
-    "email": "spartanpayments@tutanota.de",
-    "tags": ",none",
-    "id": 4
-  },
-  {
     "full_name": "Alex Potter",
     "phone_number": "111-111-1111",
     "email": "alex@gmail.com",
-    "tags": ",researcher,new tag,test",
+    "tags": "researcher,new tag,test",
     "id": 5
   },
   {
@@ -52,14 +45,14 @@
     "full_name": "Joseph Lee",
     "phone_number": "206-606-6066",
     "email": "joelee@lee.gov",
-    "tags": ",Machining",
+    "tags": "Machining",
     "id": 9
   },
   {
-    "full_name": "test testman",
-    "phone_number": "202-202-2022",
-    "email": "test@test.test",
-    "tags": "test",
+    "full_name": "sdf",
+    "phone_number": "1421421425",
+    "email": "sdf@t.net",
+    "tags": "",
     "id": 10
   }
 ]

@@ -31,9 +31,13 @@
       <div class="navbar-lower">
         <div class="navbar-controls">
           <a href="" class="create-contact-btn btn btn-outline btn-lg">Add Contact</a>
-          <input type="search" name="search" class="form-input searchbar" id="search-contacts" placeholder="Search by name">
+          <div class="searchDiv">
+            <input type="search" name="search" class="form-input searchbar" id="search-contacts" placeholder="Search by name">
+            <button class="clear-search-btn btn btn-outline">Clear Search</button>
+          </div>
         </div>
       </div>
+      <button class="clear-tag-filter-btn btn btn-outline hidden">Clear tag filter</button>
       <div class="contacts-container"></div>
     </main>
   </script>

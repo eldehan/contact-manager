@@ -57,25 +57,13 @@ class Model {
   }
 
   formatTags(contact) {
-    contact.tags = contact.tags.split(',').map(tag => tag.trim());
-
+    if (contact.tags.length > 0) {
+      contact.tags = contact.tags.split(',').map(tag => tag.trim());
+    } else {
+      contact.tags = [];
+    }
+    
     return contact;
-  }
-
-  async getGlobalTagsList() {
-    let tagsList = [];
-    const contacts = await this.fetchContacts();
-
-    contacts.forEach(contact => {
-      let tagsArray = contact.tags.split(',');
-      tagsArray.forEach(tag => {
-        if (!tagsList.includes(tag)) {
-          tagsList.push(tag);
-        }
-      });
-    });
-
-    return tagsList;
   }
 
   validateTag(tag) {

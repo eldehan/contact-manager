@@ -18,6 +18,7 @@ class Controller {
     contacts = this.model.formatTagsLists(contacts);
 
     this.view.displayContacts(contacts);
+    this.handleClearSearchBtn();
     this.handleClickTagsToFilter();
     this.handleBtnCreateContact();
     this.handleBtnsEditContact();
@@ -33,8 +34,17 @@ class Controller {
           let selectedTag = e.target.innerText;
           let filteredContacts = await this.model.filterContactsByTag(selectedTag)
           this.renderContacts(filteredContacts);
+          this.handleClearTagFilterBtn();
         }
       });
+    });
+  }
+
+  handleClearTagFilterBtn() {
+    let button = document.querySelector('.clear-tag-filter-btn');
+    button.classList.toggle('hidden');
+    button.addEventListener('click', e => {
+      this.renderContacts();
     });
   }
 
@@ -46,6 +56,7 @@ class Controller {
       this.view.displayCreateContact();
 
       this.view.displayAddTagsBtn();
+      this.view.displayTagsRemovable();
       this.handleAddTagsBtn();
       this.handleClickTagToRemove();
 
@@ -67,6 +78,7 @@ class Controller {
         this.view.displayEditContact(contact);
 
         this.view.displayAddTagsBtn();
+        this.view.displayTagsRemovable();
         this.handleAddTagsBtn();
         this.handleClickTagToRemove();
 
@@ -158,6 +170,12 @@ class Controller {
                     .map(tagSpan => tagSpan.textContent)
                     .join(',');
 
+        if (!tags) {
+          tags = [];
+        }
+
+
+        console.log(tags);
         formData.append('tags', tags);
 
         if (form.getAttribute('data-formType') === 'create') {
@@ -176,14 +194,25 @@ class Controller {
   handleSearchInput() {
     let searchbar = document.querySelector('#search-contacts');
     let searchFunc = (async e => {
+      let input = searchbar.value;
       let searchString = searchbar.value;
       let filteredContacts = await this.model.filterContactsByName(searchString);
       this.renderContacts(filteredContacts);
+
+      searchbar = document.querySelector('#search-contacts');
+      searchbar.value = input;
     });
 
     let debouncedSearch = debounce(searchFunc, 1000);
     
     searchbar.addEventListener('input', debouncedSearch);
+  }
+
+  handleClearSearchBtn() {
+    let clearSearchBtn = document.querySelector('.clear-search-btn');
+    clearSearchBtn.addEventListener('click', e => {
+      this.renderContacts();
+    });
   }
 
   validateForm() {

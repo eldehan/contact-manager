@@ -134,7 +134,7 @@ body {
 
 .navbar-controls {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -202,8 +202,17 @@ body {
 }
 
 .searchbar {
-  width: 25%;
-  /* flex: 1 1 20%; */
+  width: 75%;
+}
+
+.searchDiv {
+  flex: 0 1 auto;
+  display: flex;
+}
+
+.clear-tag-filter-btn {
+  margin-left: 15px;
+  margin-bottom: 15px;
 }
 
 /* Container for flexboxes */
@@ -270,6 +279,20 @@ body {
 
 .contact-tags-controls {
   flex: 1 1 50%;
+}
+
+.tag {
+  cursor: pointer;
+}
+
+.tag + .tag::before {
+  content: "| ";
+}
+
+.tag-removable::after {
+  margin-left: 5px;
+  content: "X";
+  color: red;
 }
 
 .contact-form-controls {
