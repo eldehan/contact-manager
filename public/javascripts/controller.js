@@ -174,8 +174,6 @@ class Controller {
           tags = [];
         }
 
-
-        console.log(tags);
         formData.append('tags', tags);
 
         if (form.getAttribute('data-formType') === 'create') {
