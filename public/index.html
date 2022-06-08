@@ -4,11 +4,122 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script src="/javascripts/jquery.js"></script>
-  <script src="/javascripts/handlebars.js"></script>
+  <title>Contact Manager</title>
+
+  <!-- Vendors -->
+  <script src="/javascripts/vendors/jquery.js"></script>
+  <script src="/javascripts/vendors/handlebars.js"></script>
+
+  <!-- Main script -->
+  <script src="/javascripts/controller.js" type="module"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  
 </head>
 <body>
+  <div class="content-container"></div>
 
+  <!-- Handlebars templates -->
+  <script id="main-page-template" type="text/x-handlebars-template">
+    <nav class="navbar">
+      
+      <h1 class="title"><a href="#">Contact Manager</a></h1>
+      <p class="subtitle">Manage your contacts here, folks.</p>
+    </nav>
+    <main>
+      <div class="navbar-lower">
+        <div class="navbar-controls">
+          <a href="" class="create-contact-btn btn btn-outline btn-lg">Add Contact</a>
+          <input type="search" name="search" class="form-input searchbar" id="search-contacts" placeholder="Search by name">
+        </div>
+      </div>
+      <div class="contacts-container"></div>
+    </main>
+  </script>
+
+  <script id="contacts-list-template" type="text/x-handlebars-template">
+    <div class="contacts-list row">
+      {{#each contacts}}
+      {{> contact-card-template}}
+      {{/each}}
+    </div>
+  </script>
+
+  <script id="contact-card-template" type="text/x-handlebars-template">
+    <div class="contact-card column" id="contact-{{id}}">
+      <h3 class="contact-name">{{full_name}}</h1>
+
+      <p class="info-label">Phone Number:</p>
+      <p class="contact-info">{{phone_number}}</p>
+
+      <p class="info-label">Email:</p>
+      <p class="contact-info">{{email}}</p>
+
+      {{> contact-tags-partial }}
+
+      <div class="contact-card-controls">
+        <a class="contact-card-controls edit-btn btn btn-outline" href="#" data-id="{{id}}">Edit</a>
+        <a class="contact-card-controls delete-btn btn btn-outline" href="#" data-id="{{id}}">Delete</a>
+      </div>
+    </div>
+  </script>
+
+  <script id="contact-form-template" type="text/x-handlebars-template">
+    <form action="" class="contact-form" data-id="{{id}}" data-formType="{{pageType}}">
+      {{#if (createContact pageType)}}
+      <h2 class="form-header">Create Contact</h1>
+      {{else}}
+      <h2 class="form-header">Edit Contact</h1>
+      {{/if}}
+      <label for="full-name" class="contact-form-label">Full name:</label>
+      <input type="text" name="full_name" class="form-input" id="full-name" value="{{full_name}}" required>
+      <span class="validation full-name-validation">Full name must consist of alphabetical letters only</span>
+
+      <label for="email" class="contact-form-label">Email:</label>
+      <input type="email" name="email" class="form-input" id="email" value="{{email}}" required>
+      <span class="validation email-validation">Email must be in standard format (i.e. example@test.com), and cannot contain non-alphanumeric characters.</span>
+
+      <label for="phone-number" class="contact-form-label">Phone Number:</label>
+      <input type="tel" name="phone_number" class="form-input" id="phone-number" value="{{phone_number}}" required>
+      <span class="validation phone-number-validation">Phone number must be in standard format and consist of 10 digits (XXX-XXX-XXXX or XXXXXXXXXX)</span>
+
+      <div class="contact-form-footer">
+        {{> contact-tags-partial }}
+
+        
+      </div>
+
+      <div class="contact-form-controls">
+        <button type="submit" class="contact-form-button submit-btn btn btn-outline">Submit</button>
+        <button type="button" class="contact-form-button cancel-btn btn btn-outline">Cancel</button>
+      </div>
+    </form>
+  </script>
+
+  <script id="create-contact-page-template" type="text/x-handlebars-template">
+      {{> contact-form-template pageType='create'}}
+  </script>
+
+  <script id="edit-contact-page-template" type="text/x-handlebars-template">
+      {{> contact-form-template pageType='edit'}}
+  </script>
+
+  <script id="contact-tags-partial" type="text/x-handlebars-template">
+    <div class="contact-tags-controls">
+      <p class="info-label">Tags:</p>
+      <p class="contact-info tags-list">
+        {{#each tags}}
+          <span class="tag">{{this}}</span>
+        {{/each}}
+      </p>
+      <button type="button" class="add-tag-btn btn btn-outline hidden">Add Tag</button>
+      <div class="new-tag-subform hidden">
+        <input type="text" class="tag-text-input form-input">
+        <p class="validation-tag"></p>
+        <button type="button" class="submit-tag btn btn-outline">Add Tag</button>
+      </div>
+    </div>
+  </script>
 </body>
 </html>
