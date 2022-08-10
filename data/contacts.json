@@ -7,52 +7,10 @@
     "id": 2
   },
   {
-    "full_name": "Jennifer Benson",
-    "phone_number": "206-676-2447",
-    "email": "jen@benson.com",
-    "tags": "wife,student",
-    "id": 3
-  },
-  {
-    "full_name": "Alex Potter",
-    "phone_number": "111-111-1111",
-    "email": "alex@gmail.com",
-    "tags": "researcher,new tag,test",
-    "id": 5
-  },
-  {
-    "full_name": "hans",
-    "phone_number": "222-222-2222",
-    "email": "hans@hans.com",
-    "tags": "test",
-    "id": 6
-  },
-  {
-    "full_name": "Sasha",
-    "phone_number": "425-361-9889",
-    "email": "sasha@gmail.com",
-    "tags": "",
-    "id": 7
-  },
-  {
-    "full_name": "Hans Erik Elde",
-    "phone_number": "4253619889",
-    "email": "hanserik.elde@gmail.com",
-    "tags": "student,test",
-    "id": 8
-  },
-  {
     "full_name": "Joseph Lee",
-    "phone_number": "206-606-6066",
+    "phone_number": "555-555-5555",
     "email": "joelee@lee.gov",
     "tags": "Machining",
     "id": 9
   },
-  {
-    "full_name": "sdf",
-    "phone_number": "1421421425",
-    "email": "sdf@t.net",
-    "tags": "",
-    "id": 10
-  }
 ]
