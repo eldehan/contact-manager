@@ -73,6 +73,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
 /* --- END CSS RESET --- */
 
 a {
@@ -268,7 +269,7 @@ body {
   font-weight: bold;
 }
 
-.contact-form >.form-input {
+.contact-form>.form-input {
   margin-bottom: 10px;
 }
 
@@ -285,8 +286,8 @@ body {
   cursor: pointer;
 }
 
-.tag + .tag::before {
-  content: "| ";
+.tag+.tag::before {
+  content: " | ";
 }
 
 .tag-removable::after {
