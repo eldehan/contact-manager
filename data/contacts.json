@@ -1,16 +1,16 @@
 [
   {
-    "full_name": "John",
-    "phone_number": "111-555-5555",
-    "email": "bob@bob.com",
-    "tags": "none",
+    "full_name": "Example Contact",
+    "phone_number": "555-555-5555",
+    "email": "example@contact.test",
+    "tags": "test",
     "id": 2
   },
   {
-    "full_name": "Joseph Lee",
-    "phone_number": "555-555-5555",
-    "email": "joelee@lee.gov",
-    "tags": "Machining",
-    "id": 9
-  },
+    "full_name": "Second Example",
+    "phone_number": "0000000000",
+    "email": "second@example.test",
+    "tags": "two",
+    "id": 3
+  }
 ]
