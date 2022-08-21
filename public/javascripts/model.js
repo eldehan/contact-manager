@@ -16,9 +16,9 @@ class Model {
       .then(res => res.json())
       .catch(() => alert('An error occurred retrieving the contacts.'));
 
-      return response;
+    return response;
   }
-  
+
   async createContact(contactData) {
     const response = await fetch('/api/contacts/', {
       method: 'POST',
@@ -62,7 +62,7 @@ class Model {
     } else {
       contact.tags = [];
     }
-    
+
     return contact;
   }
 
